@@ -1,0 +1,36 @@
+{
+    "expo": {
+        "name": "Weather",
+        "slug": "weather",
+        "version": "1.0.0",
+        "orientation": "portrait",
+        "icon": "./assets/images/logo.png",
+        "userInterfaceStyle": "automatic",
+        "splash": {
+            "image": "./assets/images/splashimg.png",
+            "resizeMode": "contain",
+            "backgroundColor": "#7bb3f3"
+        },
+        "updates": {
+            "fallbackToCacheTimeout":0
+        },
+        "assetBundlePatterns": [
+           "**/*"
+        ],
+        "ios": {
+            "supportsTablet": true,
+            "userInterfaceStyle": "automatic"
+        },
+        "android": {
+            "package": "tothepointocde.weather",
+            "adaptiveIcon": {
+                "foregroundImage": "./assets/images/logo.png",
+                "backgroundColor": "#7bb3f3"
+            },
+            "userInterfaceStyle": "automatic"
+        },
+        "web": {
+            "favicon": "./assets/images/logo.png"
+        }
+    }
+}
