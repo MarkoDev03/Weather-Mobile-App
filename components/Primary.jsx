@@ -1,11 +1,11 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import {View, StyleSheet, Text} from 'react-native';
 import LottieView from 'lottie-react-native';
-import { ContextDataAPI } from '../App';
+import { useSelector } from "react-redux"
 
-const Primary = ({ brdrColor }) => {
+const Primary = () => {
 
-    const { blockBorderColor, blckColor, data } = useContext(ContextDataAPI)
+    const { blockBorderColor, blckColor, data, brdrColor } = useSelector(state => state.dataReducer)
 
     const items = [
         { 

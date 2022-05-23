@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import {View, StyleSheet, Text} from 'react-native';
-import { ContextDataAPI } from '../App';
+import { useSelector } from "react-redux"
 
 const Overview = () => {
 
-    const { blockBorderColor, blckColor, data } = useContext(ContextDataAPI)
+    const { blockBorderColor, blckColor, data } = useSelector(state => state.dataReducer)
 
     return (
       <View  style={styles.wrapper}>

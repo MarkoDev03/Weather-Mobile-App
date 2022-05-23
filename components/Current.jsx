@@ -1,11 +1,11 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import {View, StyleSheet, Text} from 'react-native';
 import getIcon from './Icon';
-import { ContextDataAPI } from '../App';
+import { useSelector } from "react-redux"
 
 const Current = ({ currentTemp, max, min, feel }) => {
 
-    const { data } = useContext(ContextDataAPI)
+  const { data } = useSelector(state => state.dataReducer)
     
     return (
      <View style={styles.wrapper}>

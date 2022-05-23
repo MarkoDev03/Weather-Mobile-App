@@ -1,12 +1,12 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { View, StyleSheet, Text} from 'react-native';
 import getIcon from './Icon';
 import Entypo from "react-native-vector-icons/Entypo"
-import { ContextDataAPI } from '../App';
+import { useSelector } from "react-redux"
 
 const Daily = ({ days }) => {
 
-    const { blockBorderColor, blckColor, data } = useContext(ContextDataAPI)
+    const { blockBorderColor, blckColor, data } = useSelector(state => state.dataReducer)
 
     const Day = ({ item, index }) => {
 

@@ -1,11 +1,11 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import {View, StyleSheet, Text} from 'react-native';
 import getIcon from './Icon';
-import { ContextDataAPI } from '../App';
+import { useSelector } from "react-redux"
 
 const SunTime = ({ daily }) => {
 
-    const { blockBorderColor, blckColor } = useContext(ContextDataAPI)
+   const { blockBorderColor, blckColor } = useSelector(state => state.dataReducer)
 
     let sunrise = `${new Date(daily[0]?.sunriseTime * 1000).getHours() < 10? "0" + new Date(daily[0]?.sunriseTime * 1000).getHours(): new Date(daily[0]?.sunriseTime * 1000).getHours()} : ${new Date(daily[0]?.sunriseTime * 1000).getMinutes() < 10? "0" + new Date(daily[0]?.sunriseTime * 1000).getMinutes(): new Date(daily[0]?.sunriseTime * 1000).getMinutes()}`
     let sunset = `${new Date(daily[0]?.sunsetTime * 1000).getHours()} : ${new Date(daily[0]?.sunsetTime * 1000).getMinutes() < 10 ? "0" + new Date(daily[0]?.sunsetTime * 1000).getMinutes(): new Date(daily[0]?.sunsetTime * 1000).getMinutes()} ` 

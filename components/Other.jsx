@@ -1,36 +1,37 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import {View, StyleSheet, Text} from 'react-native'
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
 import MaterialIcons from "react-native-vector-icons/MaterialIcons"
-import { ContextDataAPI } from '../App'
-
+import { useSelector } from "react-redux"
 const Other = ({ aqiDesc, AQI, pollen }) => {
 
-    const { blockBorderColor, blckColor, data } = useContext(ContextDataAPI)
+  const { blockBorderColor, blckColor, data } = useSelector(state => state.dataReducer)
+
+  let isDay = blckColor === "#8dbbed" ? true : false
 
     const items = [
         {
-           icon: <MaterialCommunityIcons name="speedometer" size={25} color="#15b76c" />,
+           icon: <MaterialCommunityIcons name="speedometer" size={25} color={isDay ? "#fff" : "#15b76c"} />,
            title: "AQI",
            value: `${aqiDesc} (${AQI})`,
         },
         {
-            icon: <MaterialCommunityIcons name="waves" size={25} color="#7348be" />,
+            icon: <MaterialCommunityIcons name="waves" size={25} color={isDay ? "#fff" : "#7348be"} />,
             title: "Pressure",
             value: `${data?.currently?.pressure} hPa`,
          },
          {
-            icon: <MaterialIcons name="wb-cloudy" size={25} color="#f28581" />,
+            icon: <MaterialIcons name="wb-cloudy" size={25} color={isDay ? "#fff" : "#f28581"} />,
             title: "Clouds cover",
             value: `${Math.round(data?.currently?.cloudCover * 100)}%`,
          },
          {
-            icon: <MaterialIcons name="remove-red-eye" size={25} color="#ffbe56" />,
+            icon: <MaterialIcons name="remove-red-eye" size={25} color={isDay ? "#fff" : "#ffbe56"} />,
             title: "Visibility",
             value: `${Math.round(data?.currently?.visibility)}km`,
          },
          {
-            icon: <MaterialCommunityIcons name="tree" size={25} color="#23c9d7" />,
+            icon: <MaterialCommunityIcons name="tree" size={25} color={isDay ? "#fff" : "#23c9d7"} />,
             title: "Pollen",
             value: pollen,
          },
